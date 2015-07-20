@@ -1,0 +1,16 @@
+import os
+
+Import('testing_libs')
+Import('env')
+Import('cxxflags')
+Import('path')
+Import('lib_path')
+e = env.Clone()
+prgs = e.Program(
+     source = Glob('*.cc')
+    ,CPPPATH = path
+    ,LIBS =  testing_libs
+    ,LIBPATH = lib_path
+    ,CCFLAGS = ' '.join(cxxflags))
+Return('prgs')
+
